@@ -273,9 +273,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 90px;
-  height: 90px;
+  gap: 6px;
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
   border: 2px solid var(--border-gold);
   background: rgba(255, 255, 255, 0.92);
@@ -290,16 +290,16 @@ body {
 }
 
 .monogram .letter {
-  font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-family: var(--font-script);
+  font-size: 2.7rem;
   color: var(--gold-dark);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
 }
 
 .monogram .amp {
   font-family: var(--font-script);
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: var(--text-light);
   line-height: 1;
 }
@@ -1262,17 +1262,18 @@ body {
   }
 
   .monogram {
-    width: 78px;
-    height: 78px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 16px;
+    gap: 4px;
   }
 
   .monogram .letter {
-    font-size: 1.9rem;
+    font-size: 2.3rem;
   }
 
   .monogram .amp {
-    font-size: 1.55rem;
+    font-size: 1.6rem;
   }
 
   .hero-tag {
