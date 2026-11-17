@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Iván & Débora — Nuestra Boda</title>
   
   <!-- Open Graph para compartir en WhatsApp -->
@@ -19,28 +19,37 @@
 </head>
 <body>
 
+  <!-- Canvas para animación de pétalos flotantes y destellos dorados -->
+  <canvas id="fxCanvas"></canvas>
+
   <!-- Audio nativo HTML5 (reproduce el fragmento exacto de '28 de Diciembre') -->
   <audio id="weddingAudio" preload="auto">
     <source src="audio/cancion_boda.mp3" type="audio/mp3">
     Tu navegador no soporta reproducción de audio.
   </audio>
 
-  <!-- Barra flotante de música -->
+  <!-- Barra flotante de música con animación de vinilo y ecualizador -->
   <div class="music-floating-bar" id="musicBar">
     <div class="music-disc-wrap">
       <div class="vinyl-disc" id="vinylDisc">
         <div class="vinyl-center"></div>
       </div>
+      <div class="sound-wave-equalizer" id="equalizer">
+        <span class="eq-bar"></span>
+        <span class="eq-bar"></span>
+        <span class="eq-bar"></span>
+        <span class="eq-bar"></span>
+      </div>
       <div class="music-details">
-        <span class="music-tag">MÚSICA</span>
+        <span class="music-tag">MÚSICA DE FONDO</span>
         <span class="music-song">28 de Diciembre • La Mona Jiménez</span>
       </div>
     </div>
     <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Reproducir o pausar música">
-      <svg id="playSvg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+      <svg id="playSvg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
         <path d="M8 5v14l11-7z"/>
       </svg>
-      <svg id="pauseSvg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;">
+      <svg id="pauseSvg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" style="display:none;">
         <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
       </svg>
       <span id="musicBtnLabel">Reproducir</span>
@@ -82,18 +91,37 @@
   <main class="container">
 
     <!-- Frase principal -->
-    <section class="section quote-section">
+    <section class="section quote-section reveal-card">
       <div class="quote-card">
         <div class="quote-ornament">❦</div>
         <blockquote class="quote-lyrics">
-          «Hay historias que no necesitan un comienzo perfecto, sino toda una vida para demostrar que valen la pena. La nuestra lleva 27 años de amor, complicidad, sueños y caminos compartidos. Hoy queremos celebrar que somos y todo lo que aún nos queda por vivir junto a los que forman parte de nuestra vida.»
+          «Hay historias que no necesitan un comienzo perfecto, sino toda una vida para demostrar que valen la pena. La nuestra lleva 27 años de amor, complicidad, sueños y caminos compartidos. Y hoy queremos celebrar ese amor junto a quienes han sido parte de nuestra vida.»
         </blockquote>
         <div class="quote-author-names">Iván & Débora</div>
       </div>
     </section>
 
+    <!-- Fecha y Hora Destacada -->
+    <section class="section datetime-featured-section reveal-card">
+      <div class="datetime-featured-card">
+        <div class="datetime-featured-icon">
+          <svg viewBox="0 0 24 24" width="44" height="44" fill="currentColor">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+          </svg>
+        </div>
+        <span class="badge badge-featured">¿CUÁNDO ES?</span>
+        <h2 class="datetime-featured-day">Viernes</h2>
+        <div class="datetime-featured-date">18 de Diciembre de 2026</div>
+        <div class="datetime-featured-time-pill">
+          <span class="pill-hour">13:00 HS</span>
+          <span class="pill-note">PUNTUAL</span>
+        </div>
+        <p class="datetime-featured-sub">Celebración de día • Almuerzo</p>
+      </div>
+    </section>
+
     <!-- Cuenta regresiva -->
-    <section class="section countdown-section">
+    <section class="section countdown-section reveal-card">
       <div class="section-title-wrap">
         <span class="badge">CUENTA REGRESIVA</span>
         <h2 class="title">Falta muy poco</h2>
@@ -132,16 +160,16 @@
 
       <div class="reminder-wrap">
         <button class="btn btn-reminder" id="btnOpenReminder">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
             <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
           </svg>
-          Agregar recordatorio
+          Agregar recordatorio a mi calendario
         </button>
       </div>
     </section>
 
     <!-- Foto de manos con alianzas -->
-    <section class="section rings-section">
+    <section class="section rings-section reveal-card">
       <div class="rings-card">
         <div class="rings-img-wrap">
           <img src="images/wedding-rings.jpg" alt="Manos de los novios con los anillos de boda" class="rings-photo">
@@ -158,7 +186,7 @@
     </section>
 
     <!-- Ubicación -->
-    <section class="section location-section">
+    <section class="section location-section reveal-card">
       <div class="section-title-wrap">
         <span class="badge">UBICACIÓN</span>
         <h2 class="title">¿Dónde se celebra?</h2>
@@ -167,20 +195,20 @@
 
       <div class="location-card">
         <div class="location-icon">
-          <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+          <svg viewBox="0 0 24 24" width="44" height="44" fill="currentColor">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
         </div>
 
         <h3 class="venue-name">Salón Adeliz</h3>
         <p class="venue-address">Ruta 11 km 321,5</p>
-        <p class="venue-datetime">Viernes, 18 de Diciembre de 2026 • 13:00 hs</p>
+        <p class="venue-datetime">Viernes, 18 de Diciembre de 2026 • 13:00 hs puntual</p>
 
-        <a href="https://maps.app.goo.gl/MezpWeWap7TwePNN9?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn btn-maps">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <a href="https://maps.app.goo.gl/MezpWeWap7TwePNN9?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn btn-maps btn-pulse">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
-          Abrir en Google Maps
+          Ver cómo llegar en Google Maps
         </a>
 
         <!-- Mapa interactivo embebido -->
@@ -188,7 +216,7 @@
           <iframe 
             src="https://maps.google.com/maps?q=Adeliz,+Provincia+de+Buenos+Aires&t=&z=14&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
-            height="320" 
+            height="340" 
             style="border:0;" 
             allowfullscreen="" 
             loading="lazy" 
@@ -199,7 +227,7 @@
     </section>
 
     <!-- Dress Code -->
-    <section class="section dresscode-section">
+    <section class="section dresscode-section reveal-card">
       <div class="section-title-wrap">
         <span class="badge">DRESS CODE</span>
         <h2 class="title">Código de Vestimenta</h2>
@@ -207,11 +235,13 @@
       </div>
 
       <div class="dresscode-card">
-        <h3 class="dresscode-main">Blanco, nude</h3>
+        <h3 class="dresscode-main">Elegante Sport</h3>
+        <p class="dresscode-subtitle">Celebración de día</p>
         <p class="dresscode-description">
-          Les pedimos asistir vestidos en la gama de los tonos blanco y nude.
+          Te invitamos a acompañarnos con un look elegante, fresco y acorde a una celebración de día.
         </p>
 
+        <p class="dresscode-palette-title">Gama sugerida: Blanco y Nude</p>
         <div class="swatches-row">
           <div class="swatch-col">
             <span class="swatch-circle color-white"></span>
@@ -230,6 +260,42 @@
             <span class="swatch-label">Arena</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Confirmación de Asistencia (RSVP) -->
+    <section class="section rsvp-section reveal-card" id="confirmacion">
+      <div class="section-title-wrap">
+        <span class="badge badge-rsvp">CONFIRMACIÓN</span>
+        <h2 class="title">¿Nos acompañas?</h2>
+        <div class="line"></div>
+        <p class="rsvp-deadline">Por favor confirmar antes del día <strong>25/11</strong></p>
+      </div>
+
+      <div class="rsvp-card">
+        <div class="rsvp-field">
+          <label for="rsvpNameInput" class="rsvp-field-label">Tu Nombre y Apellido (opcional):</label>
+          <input type="text" id="rsvpNameInput" placeholder="Escribe tu nombre aquí..." class="rsvp-text-input">
+        </div>
+
+        <p class="rsvp-prompt-text">Presiona una opción para avisar a los novios por WhatsApp:</p>
+
+        <div class="rsvp-choice-buttons">
+          <button class="btn btn-rsvp-yes btn-bounce" id="btnRsvpYes">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            <span>SÍ, ASISTIRÉ</span>
+          </button>
+
+          <button class="btn btn-rsvp-no" id="btnRsvpNo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+            <span>NO PODRÉ ASISTIR</span>
+          </button>
+        </div>
+        <p class="rsvp-help-note">Al presionar se abrirá WhatsApp con el mensaje preparado para enviar.</p>
       </div>
     </section>
 
